@@ -351,54 +351,7 @@
    }
 
 
-   .painelOng {
-       height: 500px;
-       width: 80%;
-       background-color: #FFFDD0;
-       border: 2px solid #AA336A;
-       border-radius: 10px;
-       margin: 20px;
-       padding: 8px;
-       align-items: center;
-
-
-   }
-
-   .painelOng input[type="file"]::file-selector-button {
-       background-color: #882854;
-       color: white;
-       border: 1px solid #767676;
-       border-radius: 7px;
-       padding: 2px 6px;
-       cursor: pointer;
-   }
-
-   .painelOng input {
-       background-color: #fa8dc04f;
-       border-radius: 8px;
-       margin: 5px;
-       height: 45px;
-       width: 90%;
-       padding: 5px;
-       color: #882854;
-       margin-top: 0;
-       border: 1px solid #882854;
-   }
-
-   .painelOng h1 {
-       color: #882854;
-       font-size: 40px;
-       margin-left: 10px;
-
-   }
-
-   .painelOng h5 {
-       color: #882854;
-       display: block;
-       margin-bottom: 4px;
-       margin: 6px;
-       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   }
+  
 
    /* --- Responsividade --- */
    @media (max-width: 600px) {
