@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #eed5d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.error-shell {
+    width: 100%;
+    max-width: 500px;
+}
+
+.error-card {
+    background-color: #fcf9cf;
+    border: 2px solid #9e2a54;
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.error-title {
+    color: #9e2a54;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+form p {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    color: #9e2a54;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #d8b4be;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 15px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #9e2a54;
+}
+
+form p:last-child {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.btn--primary {
+    flex: 2;
+    background-color: #9e2a54;
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background-color: #822044;
+}
+
+form p:last-child a {
+    flex: 1;
+    text-decoration: none;
+}
+
+.btn--secondary {
+    width: 100%;
+    background-color: #fcf9cf;
+    color: #9e2a54;
+    border: 1.5px solid #9e2a54;
+}
+
+.btn--secondary:hover {
+    background-color: #f3eeb2;
+}
+
+/* Alertas de erro e sucesso */
+.alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.alert.danger {
+    background-color: #fde8e8;
+    color: #9b1c1c;
+    border: 1px solid #f8b4b4;
+}
+
+.alert.success {
+    background-color: #def7ec;
+    color: #03543f;
+    border: 1px solid #84e1bc;
+}
+
+.alert .ico svg,
+.alert .close svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+.alert .title {
+    font-weight: bold;
+}
+
+.alert .close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: currentColor;
+}
