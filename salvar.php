@@ -6,7 +6,7 @@
         $tipo_animal_id = $_POST['tipo_animal_id'];
         $sexo = $_POST['sexo'];
         $idade = $_POST['idade'];
-        $raca = $_POST['raça'];
+        $raca = $_POST['raca'];
         $foto = $_POST['foto'];
         $descricao = $_POST['descricao'];
         
@@ -19,7 +19,7 @@
         }
 
         //sql para inserir no banco
-        $sql = "INSERT INTO animal (nome, tipo_animal_id, sexo, idade, raca, foto, descricao, funcionario_ong_pessoa_id)
+        $sql = "INSERT INTO animal (nome, tipo_animal_id, sexo, idade, raça, foto, descricao, funcionario_ong_pessoa_id)
                 VALUES ('$nome', '$tipo_animal_id', '$sexo', '$idade', '$raca', '$foto', '$descricao', '$funcionario_ong_pessoa_id')";
 
         if (mysqli_query($conexao, $sql)) {
