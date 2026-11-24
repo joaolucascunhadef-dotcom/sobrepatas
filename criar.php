@@ -45,7 +45,7 @@ session_start();
                     unset($_SESSION['msg']);
                 }
                 ?>
-                
+
                 <form action="salvar_animal.php" method="POST">
                     <p>
                         <label for="nome">Nome:</label>
@@ -65,8 +65,8 @@ session_start();
                     </p>
                     <p>
                         <label for="foto">Foto:</label>
-                        <input type="text" id="foto" name="foto" class="input"
-                        placeholder="URL da foto do animal">
+                        <input type="file" id="foto" name="foto" class="input"
+                        placeholder="Foto da foto do animal">
                     </p>
                     <p>
                         <label for="descricao">Descrição:</label>
