@@ -45,11 +45,11 @@
                 ?>
                 <form action="salvar_animal.php" method="POST">
                     <p>
-                        <label for="nome">Nome:*</label>
+                        <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" class="input" required autofocus>                      
                     </p>
                     <p>
-                        <label for="sexo">Sexo:*</label>
+                        <label for="sexo">Sexo:</label>
                         <select id="sexo" name="sexo" class="input" required>
                             <option value="">Selecione</option>
                             <option value="Macho">Macho</option>
@@ -57,7 +57,7 @@
                         </select>
                     </p>
                     <p>
-                        <label for="idade">Idade:*</label>
+                        <label for="idade">Idade:</label>
                         <input type="number" id="idade" name="idade" class="input" required>   
                     </p>
                     <p>
