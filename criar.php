@@ -48,7 +48,7 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                 }
                 ?>
 
-                <form action="salvar_animal.php" method="POST">
+                <form action="salvar.php" method="POST">
                     <p>
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" class="input" required autofocus>
@@ -57,8 +57,8 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                         <label for="tipo_animal_id">Tipo de animal:</label>
                         <select id="tipo_animal_id" name="tipo_animal_id" class="input" required>
                             <option value="">Selecione</option>
-                            <option value="Macho">Cão</option>
-                            <option value="Fêmea">Gato</option>
+                            <option value="1">Cão</option>
+                            <option value="2">Gato</option>
                         </select>
                     </p>
                     <p>
@@ -89,7 +89,7 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                     </p>
                     <p>
                         <button type="submit" class="btn btn--primary">Adicionar animal</button>
-                        <a href="lista_animais.php"><button type="button" class="btn btn--secondary">Voltar</button></a>
+                        <a href="lista.php"><button type="button" class="btn btn--secondary">Voltar</button></a>
                     </p>
                 </form>
             </div>
