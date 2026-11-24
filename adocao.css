@@ -1,0 +1,420 @@
+   * {
+       box-sizing: border-box;
+   }
+
+   html,
+   body {
+       margin: 0;
+       padding: 0;
+       font-family: 'Arial Narrow', Arial, sans-serif;
+       background-color: white;
+
+   }
+
+   .pagina {
+       margin: 0;
+       padding: 0;
+       width: 100%;
+   }
+
+   .banner {
+       background-color: #FFFDD0;
+       width: 100%;
+       min-height: 70px;
+       padding: 10px 20px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-bottom: 30px;
+       border-bottom: 1px solid #e6caca;
+   }
+
+   .logo-area {
+       display: flex;
+       align-items: center;
+       gap: 12px;
+   }
+
+   .pata {
+       height: 33px;
+       width: auto;
+   }
+
+   .titulo {
+       color: #AA336A;
+       font-size: 24px;
+       margin: 0;
+   }
+
+   .sair{
+      background-color: #e6caca;
+       height: 36px;
+       padding: 0 20px;
+       border-radius: 10px;
+       border: 1px solid #AA336A;
+       color: #AA336A;
+       font-weight: bold;
+       cursor: pointer;
+       transition: background-color 0.2s;
+       display: none;
+   }
+
+   .sair:hover {
+       background-color: #AA336A;
+       color: white;
+   }
+   
+   .login {
+       background-color: #e6caca;
+       height: 36px;
+       padding: 0 20px;
+       border-radius: 10px;
+       border: 1px solid #AA336A;
+       color: #AA336A;
+       font-weight: bold;
+       cursor: pointer;
+       transition: background-color 0.2s;
+   }
+
+   .login:hover {
+       background-color: #AA336A;
+       color: white;
+   }
+
+
+   .frase {
+       background-color: white;
+       padding: 10px 20px;
+       max-width: 1100px;
+       margin: 0 auto 20px auto;
+   }
+
+   .titulo2 {
+       color: #AA336A;
+       font-size: clamp(28px, 5vw, 40px);
+       margin: 0 0 8px 0;
+   }
+
+   .subtitulo2 {
+       font-size: clamp(16px, 3vw, 20px);
+       color: #444;
+       margin: 0;
+   }
+
+   .visualizar_animais {
+       background-color: #e6caca;
+       padding: 20px;
+       margin-top: 10px;
+   }
+
+   .container-filtros {
+       max-width: 1100px;
+       margin: 0 auto;
+   }
+
+   .titulo-secao {
+       font-size: clamp(24px, 4vw, 30px);
+       color: #AA336A;
+       margin: 0 0 15px 0;
+   }
+
+   .barra-busca {
+       display: flex;
+       flex-wrap: wrap;
+       gap: 10px;
+       align-items: center;
+   }
+
+   .pesquisa {
+       flex: 1 1 250px;
+       padding: 12px 16px;
+       border: 1px solid #AA336A;
+       border-radius: 10px;
+       font-size: 14px;
+       outline: none;
+   }
+
+   .grupo-botoes {
+       display: flex;
+       gap: 8px;
+       flex-wrap: wrap;
+   }
+
+   .tipos {
+       height: 42px;
+       padding: 0 16px;
+       border-radius: 10px;
+       border: 1px solid #AA336A;
+       background-color: #FFFDD0;
+       color: #AA336A;
+       font-weight: bold;
+       cursor: pointer;
+       transition: all 0.2s;
+   }
+
+   .tipos:hover {
+       background-color: #AA336A;
+       color: white;
+   }
+
+   .imagens_animais {
+       background-color: #e6caca;
+       min-height: 400px;
+       padding: 20px;
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       gap: 24px;
+   }
+
+
+   .aba_animal {
+       position: relative;
+       width: 100%;
+       max-width: 280px;
+       background-color: #ffffff;
+       border-radius: 12px;
+       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+       overflow: hidden;
+       display: flex;
+       flex-direction: column;
+   }
+
+   .foto_animal {
+       width: 100%;
+       height: 220px;
+       object-fit: cover;
+       display: block;
+   }
+
+   .info_animal {
+       padding: 16px;
+       display: flex;
+       flex-direction: column;
+       gap: 8px;
+   }
+
+   .info_aba {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+   }
+
+   .nome_animal {
+       margin: 0;
+       font-size: 20px;
+       color: #333333;
+   }
+
+   .raca_animal {
+       margin: 0;
+       color: #666666;
+       font-size: 14px;
+   }
+
+   .botao_solicitacao {
+       margin-top: 10px;
+       background-color: #AA336A;
+       color: white;
+       border: none;
+       padding: 10px;
+       border-radius: 6px;
+       font-weight: bold;
+       cursor: pointer;
+       transition: background-color 0.2s;
+       width: 100%;
+   }
+
+   .botao_solicitacao:hover {
+       background-color: #882854;
+   }
+
+   .botao_excluir {
+       position: absolute;
+       top: 10px;
+       right: 10px;
+       background-color: rgba(255, 255, 255, 0.9);
+       color: #d9534f;
+       border: 1px solid #d9534f;
+       width: 30px;
+       height: 30px;
+       border-radius: 50%;
+       font-size: 18px;
+       font-weight: bold;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+
+   .botao_excluir:hover {
+       background-color: #d9534f;
+       color: white;
+   }
+
+   .botao_favorito {
+       background: none;
+       border: none;
+       cursor: pointer;
+       padding: 4px;
+       display: flex;
+       align-items: center;
+   }
+
+   .botao_favorito img {
+       height: 22px;
+       width: 22px;
+   }
+
+   .fazerLogin {
+       width: 280px;
+       background-color: #FFFDD0;
+       border: 2px solid #AA336A;
+       border-radius: 10px;
+       padding: 20px;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+       z-index: 1000;
+       display: none;
+   }
+
+   .fazerLogin label,
+   .fazerLogin input,
+   .fazerLogin button {
+       display: block;
+       width: 100%;
+       margin-bottom: 10px;
+   }
+
+   .criarConta {
+       width: 280px;
+       background-color: #FFFDD0;
+       border: 2px solid #AA336A;
+       border-radius: 10px;
+       padding: 20px;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+       z-index: 1000;
+       display: none;
+   }
+
+   .criarConta label,
+   .criarConta input,
+   .criarConta button {
+       display: block;
+       width: 100%;
+       margin-bottom: 10px;
+
+   }
+
+   .fazerLogin.ativo {
+       display: block;
+   }
+
+   .criarConta.ativo {
+       display: block;
+   }
+
+
+   #sairConta,
+   #sairLogin {
+
+       width: 28px;
+       height: 28px;
+       background-color: #AA336A;
+       color: #FFFDD0;
+       border: none;
+       border-radius: 50%;
+       cursor: pointer;
+       margin-left: auto;
+
+   }
+
+
+
+
+   #tela {
+       height: 100vh;
+       display: none;
+       position: fixed;
+       left: 0;
+       top: 0;
+       width: 100vw;
+       background-color: rgba(0, 0, 0, 0.5);
+
+   }
+
+
+   .painelOng {
+       height: 500px;
+       width: 80%;
+       background-color: #FFFDD0;
+       border: 2px solid #AA336A;
+       border-radius: 10px;
+       margin: 20px;
+       padding: 8px;
+       align-items: center;
+
+
+   }
+
+   .painelOng input[type="file"]::file-selector-button {
+       background-color: #882854;
+       color: white;
+       border: 1px solid #767676;
+       border-radius: 7px;
+       padding: 2px 6px;
+       cursor: pointer;
+   }
+
+   .painelOng input {
+       background-color: #fa8dc04f;
+       border-radius: 8px;
+       margin: 5px;
+       height: 45px;
+       width: 90%;
+       padding: 5px;
+       color: #882854;
+       margin-top: 0;
+       border: 1px solid #882854;
+   }
+
+   .painelOng h1 {
+       color: #882854;
+       font-size: 40px;
+       margin-left: 10px;
+
+   }
+
+   .painelOng h5 {
+       color: #882854;
+       display: block;
+       margin-bottom: 4px;
+       margin: 6px;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+
+   /* --- Responsividade --- */
+   @media (max-width: 600px) {
+       .banner {
+           padding: 10px 15px;
+       }
+
+       .grupo-botoes {
+           width: 100%;
+       }
+
+       .tipos {
+           flex: 1;
+       }
+
+       .aba_animal {
+           max-width: 100%;
+       }
+   }

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Patas - Adoção de Animais</title>
+    <link rel="stylesheet" href="adocao.css">
+
+
+</head>
+
+<body>
+
+    <div class="pagina">
+
+        <header class="banner">
+            <div class="logo-area">
+                <img class="pata" src="pata.png" alt="Logo pata">
+                <h1 class="titulo">Sobre patas</h1>
+            </div>
+            <button class="login">Login</button>
+            <button class="sair">Sair</button>
+        </header>
+
+        <section class="frase">
+            <h1 class="titulo2">Todo animal merece um lar.</h1>
+            <p class="subtitulo2">Conectamos animais abandonados a famílias amorosas</p>
+        </section>
+
+        <section class="visualizar_animais">
+            <div class="container-filtros">
+                <h2 class="titulo-secao">Animais disponíveis</h2>
+
+                <div class="barra-busca">
+                    <input class="pesquisa" type="text" name="pesquisa" id="pesquisa"
+                        placeholder="Buscar por nome ou raça">
+
+                    <div class="grupo-botoes">
+                        <button class="tipos">Todos</button>
+                        <button class="tipos">Gatos</button>
+                        <button class="tipos">Cães</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="imagens_animais">
+            <div class="aba_animal" data-tipo="cao">
+                <button class="botao_excluir" title="Excluir">&times;</button>
+                <img class="foto_animal" src="cachorro.png" alt="Foto do cachorro Bolinha">
+                <div class="info_animal">
+                    <div class="info_aba">
+                        <h3 class="nome_animal">Bolinha</h3>
+                        <button class="botao_favorito" title="Favoritar">
+                            <img src="estrela.png" alt="Favoritar">
+                        </button>
+                    </div>
+                    <p class="raca_animal">SRD</p>
+                    <button class="botao_solicitacao">Quero Adotar</button>
+                </div>
+            </div>
+
+            <div class="aba_animal" data-tipo="gato">
+                <button class="botao_excluir" title="Excluir">&times;</button>
+                <img class="foto_animal" src="gato.png" alt="Foto do gato Cereal">
+                <div class="info_animal">
+                    <div class="info_aba">
+                        <h3 class="nome_animal">Cereal</h3>
+                        <button class="botao_favorito" title="Favoritar">
+                            <img src="estrela.png" alt="Favoritar">
+                        </button>
+                    </div>
+                    <p class="raca_animal">Siamês</p>
+                    <button class="botao_solicitacao">Quero Adotar</button>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="painelOng">
+            <h1>Editar dados dos animais</h1>
+
+            <h5>Adicione o nome do animal</h5>
+            <label for="nome"></label>
+            <input type="text" id="nome" name="nome">
+
+            <h5>Adicione a raça do animal</h5>
+            <label for="raça"></label>
+            <input type="text" id="raça" name="raça">
+
+            <h5>Adicione uma foto do animal</h5>
+            <label for="foto"></label>
+            <input type="file" id="foto" name="foto">
+
+            <h5>Adicione uma descrição do animal</h5>
+            <label for="descricao"></label>
+            <input type="text" id="descricao" name="descricao"
+                placeholder="Adicione dados como: sexo, idade e o que achar importante">
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <div id="tela">
+        <div class="fazerLogin">
+            <button id="sairLogin">X</button>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="senha">
+
+            <button class="loginOK" title="loginOK">Pronto</button>
+            <button class="criar_contaTutor" title="Criar Conta">Criar conta</button>
+        </div>
+
+        <div class="criarConta">
+            <button id="sairConta">X</button>
+
+            <label for="emailC">Email:</label>
+            <input type="email" id="emailC" name="emailC">
+
+            <label for="senhaC">Senha:</label>
+            <input type="password" class="senhaC" name="senhaC">
+
+            <label for="senhaC2">Confirme sua senha:</label>
+            <input type="password" class="senhaC2" name="senhaC2">
+
+            <button class="botaoConta" title="botaoConta">Criar conta</button>
+        </div>
+
+
+
+    </div>
+    <script src="adocao.js"></script>
+
+</body>
+
+</html>
