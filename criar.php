@@ -30,8 +30,6 @@ $tipos = mysqli_query($conexao, $sql_tipos);
             }
         }()
     </script>
-    <script defer="defer" src="adocao.js"></script>
-    <link href="../style.76ee5eee.css" rel="stylesheet">
 </head>
 
 <body>
