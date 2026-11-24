@@ -58,11 +58,12 @@
                     </p>
                     <p>
                         <label for="idade">Idade:</label>
-                        <input type="number" id="idade" name="idade" class="input" required>   
+                        <input type="text" id="idade" name="idade" class="input" required>   
                     </p>
                     <p>
-                        
-
+                        <label for="foto">Foto:</label>
+                        <input type="text" id="foto" name="foto" class="input"
+                        placeholder="URL da foto do animal">
                     </p>
                     <p>
                         <label for="descricao">Descrição:</label>
