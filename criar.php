@@ -2,7 +2,7 @@
 session_start();
 include 'conexao.php';
 
-$sql = "SELECT id, nome FROM tipo_animal ORDER BY nome ASC";
+$sql_tipos = "SELECT id, nome FROM tipo_animal ORDER BY nome ASC";
 $tipos = mysqli_query($conexao, $sql_tipos);
 ?>
 
@@ -57,11 +57,9 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                         <label for="tipo_animal_id">Tipo de animal:</label>
                         <select id="tipo_animal_id" name="tipo_animal_id" class="input" required>
                             <option value="">Selecione</option>
-                            <?php
-                            while ($tipo = mysqli_fetch_assoc($tipos)) {
-                                echo '<option value="' . $tipo['id'] . '">' . $tipo['nome'] . '</option>';
-                            }
-                            ?>
+                            <option value="Macho">Cão</option>
+                            <option value="Fêmea">Gato</option>
+                        </select>
                     </p>
                     <p>
                         <label for="sexo">Sexo:</label>
@@ -81,8 +79,8 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                     </p>
                     <p>
                         <label for="foto">Foto:</label>
-                        <input type="file" id="foto" name="foto" class="input"
-                        placeholder="Foto da foto do animal">
+                        <input type="text" id="foto" name="foto" class="input"
+                        placeholder="URL da foto do animal">
                     </p>
                     <p>
                         <label for="descricao">Descrição:</label>
