@@ -99,6 +99,9 @@ if (gradeAnimais) {
                 const id = colunas[0].textContent.trim();
                 const nome = colunas[1].textContent.trim();
                 const raca = colunas[2].textContent.trim();
+                const descricao = colunas[3].textContent.trim();
+               const idade = colunas[4].textContent.trim(); 
+               const sexo = colunas[5].textContent.trim(); 
 
                 if (!nome || nome === 'Nenhum animal encontrado') return;
 
@@ -125,6 +128,9 @@ if (gradeAnimais) {
                             </button>
                         </div>
                         <p class="raca_animal">${raca}</p>
+                         <p class="descricao_animal">${descricao}</p>
+                    <p class="idade_animal">${idade}</p>
+                    <p class="sexo_animal">${sexo}</p>
                         <button class="botao_solicitacao">Quero Adotar</button>
                     </div>
                 `;
@@ -144,12 +150,17 @@ if (gradeAnimais) {
             const img = botaoFav.querySelector('img');
             if (!img) return;
 
+            const botoes = Array.from(document.querySelectorAll('.botao_favorito'));
+            const indice = botoes.indexOf(botaoFav);
+
             if (img.getAttribute('src') === 'estrela.png') {
                 img.setAttribute('src', 'estrelaFav.png');
                 botaoFav.title = 'Desfavoritar';
+                localStorage.setItem('favorito_' + indice, 'true');
             } else {
                 img.setAttribute('src', 'estrela.png');
                 botaoFav.title = 'Favoritar';
+                localStorage.removeItem('favorito_' + indice);
             }
             return;
         }
@@ -162,60 +173,65 @@ if (gradeAnimais) {
 
 
     //guardar animais favoritos ao recarregar a pagina
+    const botoesFav = document.querySelectorAll('.botao_favorito');
     for (let i = 0; i < localStorage.length; i++) {
-    const chave = localStorage.key(i);
-    const botaoFav = document.getElementById(chave);
-    if (botaoFav) {
-        const img = botaoFav.querySelector('img');
-        if (img) img.setAttribute('src', 'estrelaFav.png');
-        botaoFav.title = 'Desfavoritar';
-    }
-}
-
-}
-
-    // Barra de pesquisa (busca sempre todos os cards
-    const inputPesquisa = document.getElementById('pesquisa');
-
-    if (inputPesquisa) {
-        inputPesquisa.addEventListener('input', (e) => {
-            const termo = e.target.value.toLowerCase();
-            const todosCards = document.querySelectorAll('.aba_animal');
-
-            todosCards.forEach((card) => {
-                const nome = card.querySelector('.nome_animal').textContent.toLowerCase();
-                const raca = card.querySelector('.raca_animal').textContent.toLowerCase();
-
-                if (nome.includes(termo) || raca.includes(termo)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
+        const chave = localStorage.key(i);
+        if (chave.startsWith('favorito_')) {
+            const indice = chave.replace('favorito_', '');
+            const botaoFav = botoesFav[indice];
+            if (botaoFav) {
+                const img = botaoFav.querySelector('img');
+                if (img) img.setAttribute('src', 'estrelaFav.png');
+                botaoFav.title = 'Desfavoritar';
+            }
+        }
     }
 
-    // Filtrar por tipo (Todos, Gatos, Cães)
-    const botoesFiltro = document.querySelectorAll('.tipos');
+}
 
-    botoesFiltro.forEach((botao) => {
-        botao.addEventListener('click', () => {
-            const categoria = botao.textContent.trim().toLowerCase();
-            const todosCards = document.querySelectorAll('.aba_animal');
 
-            todosCards.forEach((card) => {
-                const tipoCard = card.getAttribute('data-tipo');
+// Barra de pesquisa (busca sempre todos os cards
+const inputPesquisa = document.getElementById('pesquisa');
 
-                if (categoria === 'todos') {
-                    card.style.display = 'flex';
-                } else if (categoria === 'gatos' && tipoCard === 'gato') {
-                    card.style.display = 'flex';
-                } else if (categoria === 'cães' && tipoCard === 'cao') {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+if (inputPesquisa) {
+    inputPesquisa.addEventListener('input', (e) => {
+        const termo = e.target.value.toLowerCase();
+        const todosCards = document.querySelectorAll('.aba_animal');
+
+        todosCards.forEach((card) => {
+            const nome = card.querySelector('.nome_animal').textContent.toLowerCase();
+            const raca = card.querySelector('.raca_animal').textContent.toLowerCase();
+
+            if (nome.includes(termo) || raca.includes(termo)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
         });
     });
+}
+
+// Filtrar por tipo (Todos, Gatos, Cães)
+const botoesFiltro = document.querySelectorAll('.tipos');
+
+botoesFiltro.forEach((botao) => {
+    botao.addEventListener('click', () => {
+        const categoria = botao.textContent.trim().toLowerCase();
+        const todosCards = document.querySelectorAll('.aba_animal');
+
+        todosCards.forEach((card) => {
+            const tipoCard = card.getAttribute('data-tipo');
+
+            if (categoria === 'todos') {
+                card.style.display = 'flex';
+            } else if (categoria === 'gatos' && tipoCard === 'gato') {
+                card.style.display = 'flex';
+            } else if (categoria === 'cães' && tipoCard === 'cao') {
+                card.style.display = 'flex';
+                } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
 
