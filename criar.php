@@ -1,20 +1,3 @@
-<?php
-session_start();
-include 'conexao.php';
-
-$sql_tipos = "SELECT id, nome FROM tipo_animal ORDER BY nome ASC";
-$tipos = mysqli_query($conexao, $sql_tipos);
-
-if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-
-    if (!isset($_SESSION['perfil']) || $_SESSION['perfil'] != 'ong') {
-        $_SESSION['erro'] = "Acesso permitido apenas para funcionários da ONG.";
-        header("Location: login_form.php");
-        exit();
-    }
-?>
 
 <!doctype html>
 <html lang="pt-br">

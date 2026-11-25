@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+
+$logado = isset($_SESSION['usuario_id']) ? 'true' : 'false';
+$ehFuncionario = (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'funcionario') ? 'true' : 'false';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -19,8 +27,11 @@
                 <img class="pata" src="pata.png" alt="Logo pata">
                 <h1 class="titulo">Sobre patas</h1>
             </div>
-            <button class="login">Login</button>
-            <button class="sair">Sair</button>
+            <?php if (isset($_SESSION['usuario_id'])): ?>
+                <a href="logout.php" class="sair">Sair</a>
+            <?php else: ?>
+                <a href="login.php" class="login">Login</a>
+            <?php endif; ?>
         </header>
 
         <section class="frase">
@@ -47,8 +58,9 @@
 
         <div class="imagens_animais">
             <div class="aba_animal" data-tipo="cao">
-                <a href="excluir.php" class="botao_excluir" title="Excluir">&times;</a>
-
+                <?php if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'funcionario'): ?>
+                    <a href="excluir.php" class="botao_excluir" title="Excluir">&times;</a>
+                <?php endif; ?>
                 <img class="foto_animal" src="cachorro.png" alt="Foto do cachorro Bolinha">
                 <div class="info_animal">
                     <div class="info_aba">
@@ -67,7 +79,9 @@
             </div>
 
             <div class="aba_animal" data-tipo="gato">
-                <a href="excluir.php" class="botao_excluir" title="Excluir">&times;</a>
+                <?php if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'funcionario'): ?>
+                    <a href="excluir.php" class="botao_excluir" title="Excluir">&times;</a>
+                <?php endif; ?>
                 <img class="foto_animal" src="gato.png" alt="Foto do gato Cereal">
                 <div class="info_animal">
                     <div class="info_aba">
@@ -88,55 +102,70 @@
 
         </div>
 
+
+
+    </div>
+
+
+    <?php if (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'funcionario'): ?>
         <div class="painelOng">
             <h1>Editar dados dos animais</h1>
             <br>
             <br>
             <a href="criar.php">Adicionar animal</a>
-
-
-
         </div>
-
-
-    </div>
-
-
-
+    <?php endif; ?>
 
 
 
     <div id="tela">
-        <div class="fazerLogin">
-            <button id="sairLogin">X</button>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
+        <form method="POST" action="login.php">
+            <div class="fazerLogin">
+                <button id="sairLogin">X</button>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
 
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="senha">
+                <label for="password">Senha:</label>
+                <input type="password" id="senha" name="senha">
 
-            <button class="loginOK" title="loginOK">Pronto</button>
-            <button class="criar_contaTutor" title="Criar Conta">Criar conta</button>
-        </div>
+                <button class="loginOK" title="loginOK">Pronto</button>
+                <button type="submit" class="criar_contaTutor" title="Criar Conta">Criar conta</button>
+            </div>
+        </form>
+        <form method="POST" action="cadastrar.php">
+            <div class="criarConta">
+                <button type="button" id="sairConta">X</button>
 
-        <div class="criarConta">
-            <button id="sairConta">X</button>
+                <label for="nomeC">Nome:</label>
+                <input type="text" id="nomeC" name="nomeC" required>
 
-            <label for="emailC">Email:</label>
-            <input type="email" id="emailC" name="emailC">
+                <label for="cpfC">CPF:</label>
+                <input type="text" id="cpfC" name="cpfC" required>
 
-            <label for="senhaC">Senha:</label>
-            <input type="password" class="senhaC" name="senhaC">
+                <label for="emailC">Email:</label>
+                <input type="email" id="emailC" name="emailC" required>
 
-            <label for="senhaC2">Confirme sua senha:</label>
-            <input type="password" class="senhaC2" name="senhaC2">
+                <label for="contato">Contato:</label>
+                <input type="text" id="contato" name="contato" required>
 
-            <button class="botaoConta" title="botaoConta">Criar conta</button>
-        </div>
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
 
+                <label for="senhaC">Senha:</label>
+                <input type="password" class="senhaC" name="senhaC" required>
 
+                <label for="senhaC2">Confirme sua senha:</label>
+                <input type="password" class="senhaC2" name="senhaC2" required>
 
+                <button type="submit" class="botaoConta" title="botaoConta">Criar conta</button>
+            </div>
+        </form>
     </div>
+
+    <script>
+        const usuarioLogado = <?php echo $logado; ?>;
+        const ehFuncionario = <?php echo $ehFuncionario; ?>;
+    </script>
     <script src="adocao.js"></script>
 
 </body>
