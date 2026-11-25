@@ -48,7 +48,7 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                 }
                 ?>
 
-                <form action="salvar.php" method="POST">
+                <form action="salvar.php" method="POST" enctype="multipart/form-data">
                     <p>
                         <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" class="input" required autofocus>
@@ -79,8 +79,7 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                     </p>
                     <p>
                         <label for="foto">Foto:</label>
-                        <input type="text" id="foto" name="foto" class="input"
-                        placeholder="URL da foto do animal">
+                        <input type="file" name="foto" id="foto" accept="image/*" class="input">
                     </p>
                     <p>
                         <label for="descricao">Descrição:</label>
@@ -89,8 +88,8 @@ $tipos = mysqli_query($conexao, $sql_tipos);
                     </p>
                     <p>
                         <button type="submit" class="btn btn--primary">Adicionar animal</button>
-                        <a href="lista.php"><button type="button" class="btn btn--secondary">Voltar</button></a>
-                    </p>
+                        <a href="index.html"><button type="button" class="btn btn--secondary">Voltar</button></a> 
+                    </p>               
                 </form>
             </div>
         </div>
