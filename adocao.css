@@ -46,8 +46,8 @@
        margin: 0;
    }
 
-   .sair{
-      background-color: #e6caca;
+   .sair {
+       background-color: #e6caca;
        height: 36px;
        padding: 0 20px;
        border-radius: 10px;
@@ -63,7 +63,7 @@
        background-color: #AA336A;
        color: white;
    }
-   
+
    .login {
        background-color: #e6caca;
        height: 36px;
@@ -194,23 +194,51 @@
        gap: 8px;
    }
 
+
+   .info_animal p,
+   h3 {
+       margin: 0;
+       font-size: 16px;
+       color: #333333;
+   }
+
+   .painelOng {
+       max-width: 1100px;
+       margin: 30px auto;
+       padding: 20px;
+       background-color: #FFFDD0;
+       border: 1px solid #e6caca;
+       border-radius: 12px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       flex-wrap: wrap;
+       gap: 15px;
+       color: #882854;
+   }
+
+   .painelOng a {
+       background-color: #AA336A;
+       color: white;
+       text-decoration: none;
+       padding: 10px 20px;
+       border-radius: 10px;
+       font-weight: bold;
+       transition: background-color 0.2s;
+   }
+
+   .painelOng a:hover {
+       background-color: #882854;
+   }
+
    .info_aba {
        display: flex;
        justify-content: space-between;
        align-items: center;
    }
 
-   .nome_animal {
-       margin: 0;
-       font-size: 20px;
-       color: #333333;
-   }
 
-   .raca_animal {
-       margin: 0;
-       color: #666666;
-       font-size: 14px;
-   }
+
 
    .botao_solicitacao {
        margin-top: 10px;
@@ -351,7 +379,7 @@
    }
 
 
-  
+
 
    /* --- Responsividade --- */
    @media (max-width: 600px) {
