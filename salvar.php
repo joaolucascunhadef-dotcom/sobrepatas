@@ -38,7 +38,7 @@
                 exit();
             }
         }
-        
+
         //sql para inserir no banco
         $sql = "INSERT INTO animal (nome, tipo_animal_id, sexo, idade, raca, foto, descricao, funcionario_ong_pessoa_id)
                 VALUES ('$nome', '$tipo_animal_id', '$sexo', '$idade', '$raca', '$foto', '$descricao', '$funcionario_ong_pessoa_id')";
@@ -52,4 +52,6 @@
         }
 
         mysqli_close($conexao);
+
+        
     ?>
