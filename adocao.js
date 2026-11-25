@@ -10,7 +10,6 @@ if (botaoLogin) {
     botaoLogin.addEventListener('click', function () {
         tela.style.display = "block";
         divLogin.style.display = "block";
-        botaoLogin.style.display = "none";
     });
 
     if (pronto) {
@@ -137,7 +136,8 @@ if (gradeAnimais) {
             console.error('Erro ao carregar animais para o index:', erro);
         });
 
-    // Delegação de eventos para favoritar e solicitar adoção (funciona nos cards antigos e novos)
+
+    // favoritar e solicitar adoção 
     gradeAnimais.addEventListener('click', (evento) => {
         const botaoFav = evento.target.closest('.botao_favorito');
         if (botaoFav) {
@@ -159,50 +159,63 @@ if (gradeAnimais) {
             alert('Solicitação de adoção enviada com sucesso! A ONG entrará em contato.');
         }
     });
+
+
+    //guardar animais favoritos ao recarregar a pagina
+    for (let i = 0; i < localStorage.length; i++) {
+    const chave = localStorage.key(i);
+    const botaoFav = document.getElementById(chave);
+    if (botaoFav) {
+        const img = botaoFav.querySelector('img');
+        if (img) img.setAttribute('src', 'estrelaFav.png');
+        botaoFav.title = 'Desfavoritar';
+    }
 }
 
-// Barra de pesquisa (busca sempre todos os cards atuais na tela)
-const inputPesquisa = document.getElementById('pesquisa');
-
-if (inputPesquisa) {
-    inputPesquisa.addEventListener('input', (e) => {
-        const termo = e.target.value.toLowerCase();
-        const todosCards = document.querySelectorAll('.aba_animal');
-
-        todosCards.forEach((card) => {
-            const nome = card.querySelector('.nome_animal').textContent.toLowerCase();
-            const raca = card.querySelector('.raca_animal').textContent.toLowerCase();
-
-            if (nome.includes(termo) || raca.includes(termo)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
 }
 
-// Filtrar por tipo (Todos, Gatos, Cães)
-const botoesFiltro = document.querySelectorAll('.tipos');
+    // Barra de pesquisa (busca sempre todos os cards
+    const inputPesquisa = document.getElementById('pesquisa');
 
-botoesFiltro.forEach((botao) => {
-    botao.addEventListener('click', () => {
-        const categoria = botao.textContent.trim().toLowerCase();
-        const todosCards = document.querySelectorAll('.aba_animal');
+    if (inputPesquisa) {
+        inputPesquisa.addEventListener('input', (e) => {
+            const termo = e.target.value.toLowerCase();
+            const todosCards = document.querySelectorAll('.aba_animal');
 
-        todosCards.forEach((card) => {
-            const tipoCard = card.getAttribute('data-tipo');
+            todosCards.forEach((card) => {
+                const nome = card.querySelector('.nome_animal').textContent.toLowerCase();
+                const raca = card.querySelector('.raca_animal').textContent.toLowerCase();
 
-            if (categoria === 'todos') {
-                card.style.display = 'flex';
-            } else if (categoria === 'gatos' && tipoCard === 'gato') {
-                card.style.display = 'flex';
-            } else if (categoria === 'cães' && tipoCard === 'cao') {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
+                if (nome.includes(termo) || raca.includes(termo)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // Filtrar por tipo (Todos, Gatos, Cães)
+    const botoesFiltro = document.querySelectorAll('.tipos');
+
+    botoesFiltro.forEach((botao) => {
+        botao.addEventListener('click', () => {
+            const categoria = botao.textContent.trim().toLowerCase();
+            const todosCards = document.querySelectorAll('.aba_animal');
+
+            todosCards.forEach((card) => {
+                const tipoCard = card.getAttribute('data-tipo');
+
+                if (categoria === 'todos') {
+                    card.style.display = 'flex';
+                } else if (categoria === 'gatos' && tipoCard === 'gato') {
+                    card.style.display = 'flex';
+                } else if (categoria === 'cães' && tipoCard === 'cao') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     });
-});
 

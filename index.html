@@ -47,12 +47,13 @@
 
         <div class="imagens_animais">
             <div class="aba_animal" data-tipo="cao">
-                <button class="botao_excluir" title="Excluir">&times;</button>
+                <a href="excluir.php" class="botao_excluir" title="Excluir">&times;</a>
+
                 <img class="foto_animal" src="cachorro.png" alt="Foto do cachorro Bolinha">
                 <div class="info_animal">
                     <div class="info_aba">
                         <h3 class="nome_animal">Bolinha</h3>
-                        <button class="botao_favorito" title="Favoritar">
+                        <button class="botao_favorito" id="fav_<?= $animal['id'] ?>" title="Favoritar">
                             <img src="estrela.png" alt="Favoritar">
                         </button>
                     </div>
@@ -62,12 +63,12 @@
             </div>
 
             <div class="aba_animal" data-tipo="gato">
-                <button class="botao_excluir" title="Excluir">&times;</button>
+                <a href="excluir.php" class="botao_excluir" title="Excluir">&times;</a>
                 <img class="foto_animal" src="gato.png" alt="Foto do gato Cereal">
                 <div class="info_animal">
                     <div class="info_aba">
                         <h3 class="nome_animal">Cereal</h3>
-                        <button class="botao_favorito" title="Favoritar">
+                        <button class="botao_favorito" id="fav_<?= $animal['id'] ?>" title="Favoritar">
                             <img src="estrela.png" alt="Favoritar">
                         </button>
                     </div>
@@ -82,7 +83,7 @@
         <div class="painelOng">
             <h1>Editar dados dos animais</h1>
             <a href="criar.php">Adicionar animal</a>
-            
+
 
         </div>
 
