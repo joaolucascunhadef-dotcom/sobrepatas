@@ -31,6 +31,8 @@
     }
 
     mysqli_close($conexao);
+
+    
 ?>
 
 <!doctype html>
