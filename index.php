@@ -27,13 +27,13 @@ $ehFuncionario = (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] 
                 <img class="pata" src="pata.png" alt="Logo pata">
                 <h1 class="titulo">Sobre patas</h1>
             </div>
+
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <a href="logout.php" class="sair">Sair</a>
             <?php else: ?>
                 <a href="login.php" class="login">Login</a>
             <?php endif; ?>
         </header>
-
         <section class="frase">
             <h1 class="titulo2">Todo animal merece um lar.</h1>
             <p class="subtitulo2">Conectamos animais abandonados a famílias amorosas</p>
