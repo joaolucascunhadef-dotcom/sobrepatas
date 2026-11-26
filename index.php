@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $logado = isset($_SESSION['usuario_id']) ? 'true' : 'false';
 $ehFuncionario = (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] == 'funcionario') ? 'true' : 'false';
 ?>
@@ -21,18 +20,14 @@ $ehFuncionario = (isset($_SESSION['usuario_tipo']) && $_SESSION['usuario_tipo'] 
 <body>
 
     <div class="pagina">
-
         <header class="banner">
             <div class="login_area">
                 <img class="pata" src="pata.png" alt="Logo pata">
                 <h1 class="titulo">Sobre patas</h1>
             </div>
 
-            <?php if (isset($_SESSION['usuario_id'])): ?>
-                <a href="logout.php" class="sair">Sair</a>
-            <?php else: ?>
-                <a href="login.php" class="login">Login</a>
-            <?php endif; ?>
+            <a href="logout.php" id="sair" class="sair" style="display: none;">Sair</a>
+            <a href="login.php" id="login" class="login">Login</a>
         </header>
         <section class="frase">
             <h1 class="titulo2">Todo animal merece um lar.</h1>

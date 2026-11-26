@@ -16,16 +16,21 @@ function configurarLogin() {
     const sairLogin = document.getElementById('sairLogin');
 
     if (botaoLogin) {
-        botaoLogin.addEventListener('click', function () {
-            abrirTelaLogin();
+        botaoLogin.addEventListener('click', function (e) {
+            e.preventDefault(); // 
+            if (tela) {
+                tela.style.display = "flex"; // 
+                divLogin.style.display = "block";
+            }
         });
     }
 
     if (sairLogin) {
         sairLogin.addEventListener('click', function (e) {
             e.preventDefault();
-            if (tela) tela.style.display = "none";
-            if (divLogin) divLogin.style.display = "none";
+            if (tela) {
+                tela.style.display = "none"; // Esconde o modal
+            }
         });
     }
 }
@@ -201,7 +206,19 @@ if (inputPesquisa) {
         });
     });
 }
+// Ajusta automaticamente os botões com base na sessão ativa
+document.addEventListener("DOMContentLoaded", function () {
+    const botaoSair = document.getElementById('botaoSair');
+    const botaoLogin = document.getElementById('botaoLogin');
 
+    if (typeof usuarioLogado !== 'undefined' && usuarioLogado === true) {
+        if (botaoSair) botaoSair.style.display = "inline-block";
+        if (botaoLogin) botaoLogin.style.display = "none";
+    } else {
+        if (botaoSair) botaoSair.style.display = "none";
+        if (botaoLogin) botaoLogin.style.display = "inline-block";
+    }
+});
 // Filtrar por tipo (Todos, Gatos, Cães)
 const botoesFiltro = document.querySelectorAll('.tipos');
 botoesFiltro.forEach((botao) => {

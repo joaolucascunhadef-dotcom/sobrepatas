@@ -46,7 +46,7 @@
        margin: 0;
    }
 
-   .sair {
+   #sair {
        background-color: #e6caca;
        height: 36px;
        padding: 0 20px;
@@ -57,14 +57,16 @@
        cursor: pointer;
        transition: background-color 0.2s;
        display: none;
+text-decoration: none;
+padding-top: 5px;
    }
 
-   .sair:hover {
+   #sair:hover {
        background-color: #AA336A;
        color: white;
    }
 
-   .login {
+   #login {
        background-color: #e6caca;
        height: 36px;
        padding: 0 20px;
@@ -74,9 +76,12 @@
        font-weight: bold;
        cursor: pointer;
        transition: background-color 0.2s;
+       text-decoration: none;
+       padding-top: 5px;
+
    }
 
-   .login:hover {
+   #login:hover {
        background-color: #AA336A;
        color: white;
    }

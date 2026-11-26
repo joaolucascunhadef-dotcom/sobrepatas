@@ -1,9 +1,6 @@
 <?php
+
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-// ... resto do código
 include 'conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -14,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "SELECT id, nome, senha, tipo FROM pessoa WHERE email = ?";
         $stmt = $conexao->prepare($sql);
 
-        // Se houver algum erro na tabela ou na query, mostra exatamente qual é em vez de crashar
         if (!$stmt) {
             die("Erro no SQL: " . $conexao->error);
         }
