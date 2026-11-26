@@ -9,6 +9,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($email) && !empty($senha)) {
         $sql = "SELECT id, nome, senha, tipo FROM pessoa WHERE email = ?";
         $stmt = $conexao->prepare($sql);
+
+        // Se houver algum erro na tabela ou na query, mostra exatamente qual é em vez de crashar
+        if (!$stmt) {
+            die("Erro no SQL: " . $conexao->error);
+        }
+
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $resultado = $stmt->get_result();
@@ -16,8 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($resultado->num_rows === 1) {
             $usuario = $resultado->fetch_assoc();
             
-            if (password_verify($senha, $usuario['senha'])) {
-                // Guarda os dados na sessão
+            // Verifica a senha (se usares password_hash ou texto normal)
+            if (password_verify($senha, $usuario['senha']) || $senha === $usuario['senha']) {
+                // Guarda os dados na sessão corretamente com sublinhado
                 $_SESSION['usuario_id'] = $usuario['id'];
                 $_SESSION['usuario_nome'] = $usuario['nome'];
                 $_SESSION['usuario_tipo'] = $usuario['tipo'];
