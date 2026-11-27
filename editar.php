@@ -1,7 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="editar.css">
+
+</head>
+<body>
+    
+</body>
+</html>
+
 <?php
     session_start();
     include 'conexao.php';
-
     $id = isset($_GET['id']) ? $_GET['id'] : null;
 
     if (empty($id)) {
@@ -10,7 +23,7 @@
         exit();
     }
 
-    //sql para buscar o aluno no banco
+    //sql para buscar o animal no banco
     $sql = "SELECT * FROM animal WHERE id = $id";
     $resultado = mysqli_query($conexao, $sql);
 
@@ -77,11 +90,11 @@
                     <p>
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="foto_atual" value="<?php echo htmlspecialchars($foto, ENT_QUOTES); ?>">
-                        <label for="nome">Nome:*</label>
+                        <label for="nome">Nome:</label>
                         <input type="text" id="nome" name="nome" class="input" value="<?php echo htmlspecialchars($nome, ENT_QUOTES); ?>" required autofocus>
                     </p>
                     <p>
-                        <label for="tipo_animal_id">Tipo de animal:*</label>
+                        <label for="tipo_animal_id">Tipo de animal:</label>
                         <select id="tipo_animal_id" name="tipo_animal_id" class="input" required>
                             <option value="">Selecione</option>
                             <option value="1" <?php echo ($tipo_animal_id == 1) ? 'selected' : ''; ?>>Cão</option>
@@ -89,7 +102,7 @@
                         </select>
                     </p>
                     <p>
-                        <label for="sexo">Sexo:*</label>
+                        <label for="sexo">Sexo:</label>
                         <select id="sexo" name="sexo" class="input" required>
                             <option value="">Selecione</option>
                             <option value="Macho" <?php echo ($sexo == 'Macho') ? 'selected' : ''; ?>>Macho</option>
@@ -97,11 +110,11 @@
                         </select>
                     </p>
                     <p>
-                        <label for="idade">Idade:*</label>
+                        <label for="idade">Idade:</label>
                         <input type="text" id="idade" name="idade" class="input" value="<?php echo htmlspecialchars($idade, ENT_QUOTES); ?>" required>
                     </p>
                     <p>
-                        <label for="raca">Raça:*</label>
+                        <label for="raca">Raça:</label>
                         <input type="text" id="raca" name="raca" class="input" value="<?php echo htmlspecialchars($raca, ENT_QUOTES); ?>" required>
                     </p>
                     <p>

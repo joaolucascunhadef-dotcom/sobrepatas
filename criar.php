@@ -1,4 +1,7 @@
 
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -80,8 +83,8 @@
                             placeholder="Breve descrição do animal">
                     </p>
                     <p>
-                        <button type="submit" class="btn btn--primary">Adicionar animal</button>
-                        <a href="index.html"><button type="button" class="btn btn--secondary">Voltar</button></a> 
+                        <button type="submit" class="btn btn--primary">Adicionar animall</button>
+                        <a href="index.php"><button type="button" class="btn btn--secondary">Voltar</button></a> 
                     </p>               
                 </form>
             </div>

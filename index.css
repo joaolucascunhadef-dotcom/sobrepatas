@@ -7,7 +7,7 @@
        margin: 0;
        padding: 0;
        font-family: 'Arial Narrow', Arial, sans-serif;
-       background-color: white;
+       background-color: rgb(255, 255, 255);
 
    }
 
@@ -56,9 +56,9 @@
        font-weight: bold;
        cursor: pointer;
        transition: background-color 0.2s;
-       display: none;
-text-decoration: none;
-padding-top: 5px;
+
+       text-decoration: none;
+       padding-top: 5px;
    }
 
    #sair:hover {
@@ -165,24 +165,28 @@ padding-top: 5px;
    .imagens_animais {
        background-color: #e6caca;
        min-height: 400px;
-       padding: 20px;
+       padding: 30px 20px;
+       padding-left: max(20px, calc((100% - 1100px) / 2));
+       padding-top: 40px;
        display: flex;
        flex-wrap: wrap;
        justify-content: center;
-       gap: 24px;
+       align-items: stretch;
+       gap: 25px;
+       width: 100%;
    }
-
 
    .aba_animal {
        position: relative;
-       width: 100%;
-       max-width: 280px;
-       background-color: #ffffff;
+       width: 280px;
+       max-width: 100%;
+       background-color: #f6f5e3;
        border-radius: 5px;
        overflow: hidden;
        display: flex;
        flex-direction: column;
        border: 1px solid #882854;
+
    }
 
    .foto_animal {
@@ -203,7 +207,7 @@ padding-top: 5px;
    .info_animal p,
    h3 {
        margin: 0;
-       font-size: 16px;
+       font-size: 18px;
        color: #333333;
    }
 
@@ -227,7 +231,7 @@ padding-top: 5px;
        color: white;
        text-decoration: none;
        padding: 10px 20px;
-       border-radius: 5px;
+       border-radius: 3px;
        font-weight: bold;
        transition: background-color 0.2s;
    }
@@ -241,8 +245,6 @@ padding-top: 5px;
        justify-content: space-between;
        align-items: center;
    }
-
-
 
 
    .botao_solicitacao {
@@ -281,7 +283,7 @@ padding-top: 5px;
        text-decoration: none;
    }
 
-  
+
 
    .botao_excluir:hover {
        background-color: #d9534f;
@@ -351,7 +353,7 @@ padding-top: 5px;
    .criarConta input,
    .fazerLogin input {
        border: 1px solid #AA336A;
-       ;
+
 
    }
 
@@ -416,24 +418,252 @@ padding-top: 5px;
 
    }
 
+   #mensagem {
+       text-align: center;
+       margin-top: 10px;
+       font-weight: bold;
+   }
+
+   .sucesso {
+       color: green;
+       text-align: center;
+   }
+
+   .erro {
+       color: red;
+       text-align: center;
+   }
+
+
+   .opcONG {
+       background-color: #e4bcbc;
+       width: 80%;
+       height: 100px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       gap: 20px;
+       border-radius: 3px;
+
+   }
+
+   .painelOng h1 {
+
+       margin-left: 5px;
+       font-size: 35px;
+       margin-bottom: 6px;
+   }
 
 
 
-   /* --- Responsividade --- */
-   @media (max-width: 600px) {
+   /* RESPONSIVIDADE */
+
+   /* Tablets */
+   @media (max-width: 900px) {
+
        .banner {
+           padding: 12px 20px;
+       }
+
+       .frase {
+           padding: 10px 25px;
+       }
+
+       .visualizar_animais {
+           padding: 20px;
+       }
+
+       .imagens_animais {
+           gap: 18px;
+           padding: 15px;
+       }
+
+       .aba_animal {
+           width: 280px;
+           max-width: 45%;
+           margin: 0;
+       }
+
+       .foto_animal {
+           height: 200px;
+       }
+
+       .painelOng {
+           margin: 20px;
+       }
+
+   }
+
+   /* Celulares */
+   @media (max-width: 600px) {
+
+       .banner {
+           min-height: 60px;
+           padding: 10px;
+       }
+
+       .login_area {
+           gap: 7px;
+       }
+
+       .pata {
+           width: 28px;
+           height: 28px;
+       }
+
+       .titulo {
+           font-size: 20px;
+       }
+
+       #login,
+       #sair {
+           height: 34px;
+           padding: 7px 12px;
+           font-size: 13px;
+       }
+
+       .frase {
            padding: 10px 15px;
+           margin-bottom: 15px;
+       }
+
+       .titulo2 {
+           font-size: 28px;
+       }
+
+       .subtitulo2 {
+           font-size: 15px;
+       }
+
+       .visualizar_animais {
+           padding: 15px;
+       }
+
+       .tituloPrincipal {
+           font-size: 23px;
+       }
+
+       .buscar {
+           flex-direction: column;
+           align-items: stretch;
+       }
+
+       .pesquisa {
+           width: 100%;
+           flex: none;
        }
 
        .botoesFiltro {
            width: 100%;
+           display: flex;
+           gap: 5px;
        }
 
        .tipos {
            flex: 1;
+           padding: 0 8px;
+           font-size: 13px;
+       }
+
+       .imagens_animais {
+           padding: 10px;
+           gap: 15px;
        }
 
        .aba_animal {
-           max-width: 100%;
+           width: 100%;
+           max-width: 350px;
+           margin: 0 auto;
        }
+
+       .foto_animal {
+           height: 220px;
+       }
+
+       .info_animal {
+           padding: 13px;
+       }
+
+       .info_animal p,
+       .info_animal h3 {
+           font-size: 16px;
+       }
+
+       .botao_solicitacao {
+           padding: 12px;
+       }
+
+       .painelOng {
+           margin: 15px;
+           padding: 15px;
+           flex-direction: column;
+           align-items: stretch;
+       }
+
+       .painelOng h1 {
+           font-size: 24px;
+           margin-left: 0;
+       }
+
+       .painelOng a {
+           text-align: center;
+       }
+
+       .opcONG {
+           width: 100%;
+           height: auto;
+           min-height: 80px;
+           flex-wrap: wrap;
+           padding: 10px;
+       }
+
+       /* Login e cadastro */
+       .fazerLogin,
+       .criarConta {
+           width: calc(100% - 30px);
+           max-width: 350px;
+           max-height: 90vh;
+           overflow-y: auto;
+           padding: 18px;
+       }
+
+       #tela {
+           height: 100%;
+           width: 100%;
+           overflow-y: auto;
+       }
+
+   }
+
+   /* Celulares pequenos */
+   @media (max-width: 380px) {
+
+       .titulo {
+           font-size: 17px;
+       }
+
+       .pata {
+           width: 24px;
+           height: 24px;
+       }
+
+       #login,
+       #sair {
+           padding: 6px 9px;
+           font-size: 12px;
+       }
+
+       .titulo2 {
+           font-size: 24px;
+       }
+
+       .tipos {
+           font-size: 12px;
+           padding: 0 5px;
+       }
+
+       .foto_animal {
+           height: 180px;
+       }
+
    }

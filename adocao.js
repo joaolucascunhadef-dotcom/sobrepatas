@@ -61,15 +61,7 @@ if (sairConta) {
     });
 }
 
-// Deslogar (apenas visual, caso necessário)
-const logout = document.querySelector('.sair');
-if (logout) {
-    logout.addEventListener('click', function () {
-        logout.style.display = "none";
-        const botaoLogin = document.querySelector('.login');
-        if (botaoLogin) botaoLogin.style.display = "block";
-    });
-}
+
 
 // Carregar animais do banco (via listar.php) junto com os cards do index.html
 const gradeAnimais = document.querySelector('.imagens_animais');
@@ -138,39 +130,43 @@ if (gradeAnimais) {
         });
 
     // Favoritar e solicitar adoção 
-    gradeAnimais.addEventListener('click', (evento) => {
-        const botaoFav = evento.target.closest('.botao_favorito');
-        if (botaoFav) {
-            const img = botaoFav.querySelector('img');
-            if (!img) return;
+    gradeAnimais.addEventListener('click', function (evento) {
 
-            const botoes = Array.from(document.querySelectorAll('.botao_favorito'));
-            const indice = botoes.indexOf(botaoFav);
+        if (evento.target.classList.contains('botao_favorito')) {
+            const botao = evento.target;
+            const imagem = botao.querySelector('img');
 
-            if (img.getAttribute('src') === 'estrela.png') {
-                img.setAttribute('src', 'estrelaFav.png');
-                botaoFav.title = 'Desfavoritar';
-                localStorage.setItem('favorito_' + indice, 'true');
+            if (imagem.src.includes('estrela.png')) {
+                imagem.src = 'estrelaFav.png';
             } else {
-                img.setAttribute('src', 'estrela.png');
-                botaoFav.title = 'Favoritar';
-                localStorage.removeItem('favorito_' + indice);
+                imagem.src = 'estrela.png';
             }
-            return;
         }
 
-        const botaoAdotar = evento.target.closest('.botao_solicitacao');
-        if (botaoAdotar) {
-            if (typeof usuarioLogado !== 'undefined' && usuarioLogado) {
-                alert('Solicitação de adoção enviada com sucesso! A ONG entrará em contato.');
+        if (evento.target.tagName === 'IMG' && evento.target.parentElement.classList.contains('botao_favorito')) {
+            const imagem = evento.target;
+
+            if (imagem.src.includes('estrela.png')) {
+                imagem.src = 'estrelaFav.png';
             } else {
-                alert('Você precisa fazer login para solicitar a adoção!');
-                abrirTelaLogin();
+                imagem.src = 'estrela.png';
             }
-            return;
         }
+
     });
-}
+
+    const botaoAdotar = evento.target.closest('.botao_solicitacao');
+    if (botaoAdotar) {
+        if (typeof usuarioLogado !== 'undefined' && usuarioLogado) {
+            alert('Solicitação de adoção enviada com sucesso! A ONG entrará em contato.');
+        } else {
+            alert('Você precisa fazer login para solicitar a adoção!');
+            abrirTelaLogin();
+        }
+        return;
+    }
+};
+
 
 // Guardar animais favoritos ao recarregar a pagina
 const botoesFav = document.querySelectorAll('.botao_favorito');
@@ -240,4 +236,47 @@ botoesFiltro.forEach((botao) => {
             }
         });
     });
+});
+
+//mensagem de sucesso e erro
+const formLogin = document.getElementById('formLogin');
+const mensagem = document.getElementById('mensagem');
+
+formLogin.addEventListener('submit', function (event) {
+
+    event.preventDefault();
+
+    const dados = new FormData(formLogin);
+
+    fetch('login.php', {
+        method: 'POST',
+        body: dados
+    })
+
+        .then(resposta => resposta.text())
+
+        .then(resultado => {
+
+            if (resultado.trim() === "sucesso") {
+
+                mensagem.className = "sucesso";
+                mensagem.innerHTML = "Login realizado com sucesso!";
+
+                setTimeout(function () {
+                    window.location.reload();
+                }, 1000);
+
+
+                divLogin.classList.remove('ativo');
+                tela.style.display = "none";
+
+            } else {
+
+                mensagem.className = "erro";
+                mensagem.innerHTML = resultado;
+
+            }
+
+        });
+
 });
